@@ -1,0 +1,14 @@
+.login-container {
+    margin: auto;
+    padding: 20px;
+
+    mat-form-field {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .login-container {
+        width: 450px;
+    }
+}

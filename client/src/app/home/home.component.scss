@@ -1,0 +1,64 @@
+.container {
+  position: relative;
+}
+
+.table-container {
+  position: relative;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  .is-green {
+    background: green;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    float: left;
+    margin-right: 15px;
+  }
+
+  .is-red {
+    background: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    float: left;
+    margin-right: 15px;
+  }
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .filter {
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .mat-cell,
+  .mat-header-cell {
+    padding-right: 8px;
+  }
+}
+
+::ng-deep .my-tooltip {
+  text-align: center;
+  white-space: pre-line;
+}

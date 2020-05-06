@@ -1,0 +1,28 @@
+<div class="user-container">
+    <p>{{ modalData ? "Edit" : "Add" }} Meal</p>
+    <form [formGroup]="meal" (ngSubmit)="onSubmit()" fxLayout="column">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="text" placeholder="Name" formControlName="name" class="user-inputs" id="meal-name" autocomplete="disable">
+            <mat-error *ngIf="meal.get('name').invalid">Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="m-t-20">
+            <mat-label>Calories</mat-label>
+            <input matInput type="number" placeholder="Calories" 
+            step="0.01"
+            formControlName="calories" class="user-inputs" id="meal-calorie" autocomplete="off">
+            <mat-error *ngIf="meal.get('calories').invalid">Calories is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="myDatepicker"  formControlName="created_on">
+            <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker></mat-datepicker>
+        </mat-form-field>
+        <div class="mt-15">
+            <button mat-raised-button type="button" (click)="close()">Cancel</button>
+            <button class="ml-15" mat-raised-button color="primary" [disabled]="!meal.valid" type="submit">Save</button>
+        </div>
+        <mat-error class="mt-15" *ngIf="errMsg">{{errMsg}}</mat-error>
+    </form>
+</div>

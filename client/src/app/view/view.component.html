@@ -1,0 +1,46 @@
+<div class="container mat-elevation-z8 mt-15">
+  <div class="loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults" diameter="40"></mat-spinner>
+  </div>
+  <form
+    [formGroup]="viewFormGroup"
+    style="margin: 15px;"
+    (ngSubmit)="onSubmit()"
+  >
+    <div>
+      <mat-form-field style="margin-top: 15px;">
+        <mat-label>Document Name</mat-label>
+        <input matInput placeholder="Document Name" formControlName="name"
+        >
+      </mat-form-field>
+      <button mat-button *ngIf="docId" type="button" (click)="shareDoc()" style="float: right;margin: 15px;">
+        <mat-icon>share</mat-icon>
+      </button>
+      <mat-chip-list #chipList aria-label="Users shared to" style="float: right;margin: 15px;">
+        <span *ngFor="let user of data.users">
+            <mat-chip
+              [ngStyle]="getChipColor(user.name)"
+              matTooltipClass="my-tooltip"
+              matTooltip="{{user.name}}{{
+                user.accessed_on
+                ? ('\n Last Viewed: ' + (user.accessed_on | date: 'dd/MM/yyyy h:mm a'))
+                : ''}}"
+            >
+              {{user.name.substring(0, 1) | uppercase}}
+            </mat-chip>
+        </span>
+      </mat-chip-list>
+    </div>
+    <div style="border-top: solid 0.2px gray;">
+      <angular-editor
+        class="customAngularEditor"
+        formControlName="contents"
+        [config]="editorConfig"
+      ></angular-editor>
+    </div>
+    <button mat-raised-button color="primary" [disabled]="!viewFormGroup.valid" type="submit"
+    style="margin-bottom:15px; margin-top: 15px;"
+    >{{docId ? "Update": "Create"}}</button>
+    <mat-error class="mt-15" *ngIf="errMsg">{{errMsg}}</mat-error>
+  </form>
+</div>

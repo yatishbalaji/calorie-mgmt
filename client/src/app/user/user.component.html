@@ -1,0 +1,26 @@
+<div class="user-container">
+    <p>Add User</p>
+    <form [formGroup]="user" (ngSubmit)="onSubmit()" fxLayout="column">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="text" placeholder="Name" formControlName="name" class="user-inputs" id="user-name" autocomplete="off">
+            <mat-error *ngIf="user.get('name').invalid">Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="m-t-20">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" placeholder="Email" formControlName="email" class="user-inputs" id="user-email" autocomplete="off">
+            <mat-error *ngIf="user.get('email').invalid">Email is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="m-t-20">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Password" formControlName="password" class="user-inputs"  autocomplete="off"
+                id="user-password">
+            <mat-error *ngIf="user.get('password').invalid">Password is required</mat-error>
+        </mat-form-field>
+        <div class="mt-15">
+            <button mat-raised-button type="button" (click)="close()">Cancel</button>
+            <button class="ml-15" mat-raised-button color="primary" [disabled]="!user.valid" type="submit">Save</button>
+        </div>
+        <mat-error class="mt-15" *ngIf="errMsg">{{errMsg}}</mat-error>
+    </form>
+</div>
