@@ -31,12 +31,12 @@ export class HttpTokenInterceptor implements HttpInterceptor {
     let req = request;
 
     // handle url request without domain to api server
-    if (req.url[0] === '/') {
-      Object.assign(req, {
-        url: `http://localhost:5000${req.url}`,
-        urlWithParams: `http://localhost:5000${req.urlWithParams}`
-      });
-    }
+    // if (req.url[0] === '/') {
+    //   Object.assign(req, {
+    //     url: `http://localhost:5000${req.url}`,
+    //     urlWithParams: `http://localhost:5000${req.urlWithParams}`
+    //   });
+    // }
 
     if (req.headers.get('ignoreAuthModule') === 'true') {
       return next.handle(req);
