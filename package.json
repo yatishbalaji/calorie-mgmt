@@ -1,5 +1,5 @@
 {
-  "name": "doc-app",
+  "name": "calorie-app",
   "version": "1.0.0",
   "description": "Calorie Management",
   "main": "src/index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:yatishbalaji/postman-docs.git"
+    "url": "git@github.com:yatishbalaji/calorie-mgmt.git"
   },
   "keywords": [
     "Calorie",
@@ -33,7 +33,7 @@
     "nodemon": "^2.0.2"
   },
   "bugs": {
-    "url": "https://github.com/yatishbalaji/postman-docs/issues"
+    "url": "https://github.com/yatishbalaji/calorie-mgmt/issues"
   },
   "engines": {
     "node": "10.13"

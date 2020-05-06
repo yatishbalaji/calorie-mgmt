@@ -11,7 +11,7 @@ Installation
 
 Clone repository
 
-    https://github.com/yatishbalaji/postman-docs.git
+    https://github.com/yatishbalaji/calorie-mgmt.git
 
     npm install
 
